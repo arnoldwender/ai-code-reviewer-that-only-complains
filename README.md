@@ -2,7 +2,7 @@
 
 **An AI code reviewer that never has anything nice to say. Ever.**
 
-Built by [Arnold Wender](https://github.com/arnoldwender)
+Built by [Arnold Wender](https://arnoldwender.com)
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-AI%20Code%20Reviewer-ff6600?style=for-the-badge)](https://ai-code-reviewer-that-only-complains.netlify.app)
 
