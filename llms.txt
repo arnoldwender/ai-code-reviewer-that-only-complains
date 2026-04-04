@@ -1,0 +1,25 @@
+# AI Code Reviewer That Only Complains
+
+> An AI code reviewer that only gives harsh, sarcastic complaints — never praise.
+
+## Tech Stack
+- React 18, TypeScript, Vite, Tailwind CSS
+- Framer Motion, canvas-confetti, html2canvas, Web Audio API, Lucide React
+
+## Key Files
+- src/App.tsx — Main application component
+- src/components/ — UI components (reviewer personas, severity meter, etc.)
+- src/data/ — Reviewer personas and complaint templates
+- src/utils/ — Utility functions
+
+## Features
+- 4 reviewer personas with unique roasting styles
+- Severity meter (mild to existential crisis)
+- Line-by-line code roasts
+- Achievement system
+- Shareable report cards (html2canvas)
+- Sound effects (Web Audio API)
+
+## URLs
+- Live: https://ai-code-reviewer-that-only-complains.netlify.app
+- Repo: https://github.com/arnoldwender/ai-code-reviewer-that-only-complains
