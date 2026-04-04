@@ -210,7 +210,7 @@ export default function App() {
         {/* Header */}
         <header className="text-center mb-8 border-b border-terminal-orange/20 pb-6">
           <div className="text-[0.62rem] tracking-[6px] text-terminal-orange/30 mb-2 uppercase">
-            Wender Media Emotional Intelligence Suite
+            Arnold Wender Emotional Intelligence Suite
           </div>
           <h1 className="title-glow text-[clamp(1.4rem,5vw,2.5rem)] font-light tracking-[4px] mb-1 flex items-center justify-center gap-3">
             <Terminal className="w-6 h-6 md:w-8 md:h-8 opacity-60" />
@@ -365,7 +365,7 @@ export default function App() {
         {/* Footer */}
         <footer className="border-t border-terminal-orange/10 pt-6 mt-8 text-center text-[0.56rem] text-terminal-orange/20 tracking-widest leading-[2.4]">
           <div>AI CODE REVIEWER IS NOT RESPONSIBLE FOR CAREER CHANGES, EXISTENTIAL CRISES, OR DELETED REPOS</div>
-          <div>BUILT BY WENDER MEDIA -- 18 YEARS OF CLEAN CODE. THIS IS NOT THAT.</div>
+          <div>BUILT BY ARNOLD WENDER -- 18 YEARS OF CLEAN CODE. THIS IS NOT THAT.</div>
           <div className="text-terminal-red/15 mt-1">HTTP 418 -- YOUR CODE IS ALSO A TEAPOT</div>
         </footer>
       </div>

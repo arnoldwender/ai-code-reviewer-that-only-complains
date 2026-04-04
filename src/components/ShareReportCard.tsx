@@ -145,7 +145,7 @@ export default function ShareReportCard({ issueCount, complaintCount, personaNam
           className="text-[0.45rem] text-center mt-3 tracking-[2px]"
           style={{ color: 'rgba(255,102,0,0.2)' }}
         >
-          ai-code-reviewer.wfrb.dev -- WENDER MEDIA
+          ai-code-reviewer.wfrb.dev -- ARNOLD WENDER
         </div>
       </div>
 
