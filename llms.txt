@@ -1,0 +1,58 @@
+# AI Code Reviewer That Only Complains
+
+> A satirical web app that parodies AI code review tools by delivering sarcastic, emotionally brutal complaints instead of actual feedback.
+
+## What This Project Is
+
+This is a humorous, retro-terminal-styled React application. Users paste code into a fake terminal interface and receive randomly selected sarcastic complaints, absurd issue reports, and devastating score ratings. No real code analysis is performed.
+
+## Tech Stack
+
+- React 18 with TypeScript
+- Vite 5 (build tool)
+- Tailwind CSS 3 (styling)
+- Lucide React (icons)
+
+## Key Files
+
+- src/App.tsx: Main component with three-phase flow (idle, reviewing, done)
+- src/data/reviewData.ts: All static complaint text, fake issues, and scores
+- src/utils/glitch.ts: Text glitch effect and array shuffle
+- src/components/CrtOverlay.tsx: CRT monitor visual effects
+- src/components/ReviewFeedback.tsx: Displays complaints sequentially
+- src/components/IssuesList.tsx: Shows fake detected issues
+- src/components/ScoreBoard.tsx: Humorous ratings display
+- src/components/Verdict.tsx: Final verdict component
+- src/index.css: Global styles and CRT animations
+- tailwind.config.js: Terminal theme colors (orange on black)
+
+## How It Works
+
+1. User pastes code into textarea
+2. App selects 5 random complaints from a static array of 20
+3. Complaints display one at a time with 400ms intervals
+4. After complaints finish, 5 random fake issues appear with categories like EXISTENTIAL, EMOTIONAL, NUTRITIONAL
+5. A scoreboard shows metrics rated 0-5 stars with sarcastic comments
+6. A final verdict is displayed
+7. User can reset and submit more code
+
+## Development
+
+```
+npm install
+npm run dev          # Start dev server at localhost:5173
+npm run build        # Production build
+npm run lint         # ESLint
+npm run typecheck    # TypeScript validation
+```
+
+## Design
+
+Retro CRT terminal aesthetic with orange text (#ff6600) on black background, JetBrains Mono font, scanline overlays, vignette effects, and glitching title animation. Themed as "Wender Media Emotional Intelligence Suite v6.6.6".
+
+## Notes
+
+- Entirely client-side, no backend or API calls
+- @supabase/supabase-js is an unused dependency
+- All content is static data in reviewData.ts
+- The sarcastic tone is the entire point of the project
