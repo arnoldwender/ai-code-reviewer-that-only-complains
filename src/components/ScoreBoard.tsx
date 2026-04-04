@@ -1,3 +1,5 @@
+/* Score board — staggered row animation with framer-motion */
+import { motion } from 'framer-motion';
 import { SCORES } from '../data/reviewData';
 
 export default function ScoreBoard() {
@@ -7,9 +9,12 @@ export default function ScoreBoard() {
         SCORES:
       </div>
       {SCORES.map((s, i) => (
-        <div
+        <motion.div
           key={i}
-          className="score-row flex items-center gap-3 mb-2 text-[0.68rem]"
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.25, delay: i * 0.08 }}
+          className="flex items-center gap-3 mb-2 text-[0.68rem]"
         >
           <span className="text-terminal-orange/55 min-w-[140px]">{s.label}</span>
           <div className="flex gap-0.5">
@@ -27,7 +32,7 @@ export default function ScoreBoard() {
             ))}
           </div>
           <span className="text-terminal-orange/35 text-[0.6rem]">{s.comment}</span>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

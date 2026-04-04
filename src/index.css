@@ -142,3 +142,14 @@ textarea:focus {
   border-color: rgba(255, 102, 0, 0.4);
   box-shadow: 0 0 20px rgba(255, 102, 0, 0.08), inset 0 0 30px rgba(255, 102, 0, 0.02);
 }
+
+/* Wavy underline for roasted code lines */
+.decoration-wavy {
+  text-decoration-style: wavy;
+}
+
+/* Select dropdown styling for dark terminal theme */
+select option {
+  background: #0a0500;
+  color: #ff6600;
+}
