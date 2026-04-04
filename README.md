@@ -1,3 +1,65 @@
-# ai-code-reviewer-that-only-complains
+# :rage: AI Code Reviewer That Only Complains
 
-[![Open in Bolt](https://bolt.new/static/open-in-bolt.svg)](https://bolt.new/~/sb1-52djufpw)
+**An AI code reviewer that never has anything nice to say. Ever.**
+
+Built by [Arnold Wender](https://github.com/arnoldwender)
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-AI%20Code%20Reviewer-ff6600?style=for-the-badge)](https://ai-code-reviewer-that-only-complains.netlify.app)
+
+---
+
+![Screenshot Placeholder](./screenshot.png)
+
+## What is this?
+
+Paste your code and prepare for emotional damage. This AI code reviewer has 4 distinct personas — each more brutal than the last — and they will never, under any circumstances, say something positive about your code. No constructive feedback. No silver linings. Just pure, unfiltered roasting.
+
+> "Your variable naming convention looks like a cat walked across your keyboard." — The Reviewer
+
+## Features
+
+- **4 Reviewer Personas** — Each with their own flavor of cruelty (from passive-aggressive to unhinged)
+- **Severity Meter** — Watch the complaint level rise from "Mildly Disappointed" to "Existential Crisis"
+- **Line-by-Line Roasts** — Every single line of your code gets individually destroyed
+- **Achievements System** — Unlock badges for surviving the worst reviews
+- **Share Report Card** — Generate a shareable report card of your code's failures
+- **Sound Effects** — Audio feedback that matches the reviewer's disappointment
+
+## Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| React 18 | UI framework |
+| TypeScript | Type safety |
+| Vite | Build tool & dev server |
+| Tailwind CSS | Styling |
+| Framer Motion | Animations |
+| canvas-confetti | Celebration effects |
+| html2canvas | Report card generation |
+| Web Audio API | Sound effects |
+| Lucide React | Icons |
+
+## Getting Started
+
+```bash
+# Clone the repo
+git clone https://github.com/arnoldwender/ai-code-reviewer-that-only-complains.git
+cd ai-code-reviewer-that-only-complains
+
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## Live Demo
+
+**[https://ai-code-reviewer-that-only-complains.netlify.app](https://ai-code-reviewer-that-only-complains.netlify.app)**
+
+## License
+
+MIT
