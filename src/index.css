@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-terminal-bg font-mono antialiased;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: rgba(255, 102, 0, 0.3);
+    color: #ff6600;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0500;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 102, 0, 0.2);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 102, 0, 0.4);
+  }
+}
+
+@layer components {
+  .crt-scanlines {
+    @apply fixed inset-0 pointer-events-none;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 102, 0, 0.012) 2px,
+      rgba(255, 102, 0, 0.012) 4px
+    );
+    z-index: 9999;
+  }
+
+  .crt-vignette {
+    @apply fixed inset-0 pointer-events-none;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 60%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: 9998;
+  }
+
+  .crt-sweep {
+    @apply fixed left-0 right-0 pointer-events-none;
+    height: 2px;
+    background: rgba(255, 102, 0, 0.06);
+    animation: scandown 7s linear infinite;
+    z-index: 9997;
+  }
+}
+
+@keyframes scandown {
+  0% { top: -5%; }
+  100% { top: 105%; }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flickerIn {
+  0% { opacity: 0; }
+  10% { opacity: 0.8; }
+  15% { opacity: 0.2; }
+  20% { opacity: 1; }
+  30% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    text-shadow: 0 0 20px #ff6600, 0 0 40px #ff6600;
+  }
+  50% {
+    text-shadow: 0 0 30px #ff6600, 0 0 60px #ff6600, 0 0 80px rgba(255, 102, 0, 0.3);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.complaint-item {
+  animation: fadein 0.35s ease forwards;
+}
+
+.issue-item {
+  animation: fadein 0.3s ease forwards;
+}
+
+.score-row {
+  animation: fadein 0.25s ease forwards;
+}
+
+.verdict-box {
+  animation: flickerIn 0.6s ease forwards;
+}
+
+.results-section {
+  animation: slideUp 0.4s ease forwards;
+}
+
+.title-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+textarea::placeholder {
+  color: rgba(255, 102, 0, 0.2);
+}
+
+textarea:focus {
+  border-color: rgba(255, 102, 0, 0.4);
+  box-shadow: 0 0 20px rgba(255, 102, 0, 0.08), inset 0 0 30px rgba(255, 102, 0, 0.02);
+}
