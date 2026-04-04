@@ -60,6 +60,10 @@ npm run build
 
 **[https://ai-code-reviewer-that-only-complains.netlify.app](https://ai-code-reviewer-that-only-complains.netlify.app)**
 
+## Contributing
+
+Think you can write better complaints? Check out [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on how to get involved.
+
 ## License
 
-MIT
+This project is licensed under the MIT License — see the [LICENSE](./LICENSE) file for details.
