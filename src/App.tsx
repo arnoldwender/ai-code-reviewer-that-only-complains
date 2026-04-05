@@ -13,6 +13,11 @@ import GlobalCounter from './components/GlobalCounter';
 import LineByLineRoast from './components/LineByLineRoast';
 import AchievementToast from './components/AchievementToast';
 import ShareReportCard from './components/ShareReportCard';
+import GitHubPRReview from './components/GitHubPRReview';
+import CICDPipeline from './components/CICDPipeline';
+import DevDashboard from './components/DevDashboard';
+import FakeChangelog from './components/FakeChangelog';
+import ProTierCLI from './components/ProTierCLI';
 import { COMPLAINTS, FAKE_ISSUES } from './data/reviewData';
 import { PERSONAS } from './data/personas';
 import { EASTER_EGGS } from './data/easterEggs';
@@ -26,6 +31,9 @@ import type { Persona } from './data/personas';
 import type { Achievement } from './data/achievements';
 
 type Phase = 'idle' | 'reviewing' | 'done';
+
+/* Active tab in the results section */
+type ResultsTab = 'review' | 'pipeline' | 'dashboard';
 
 const BASE_TITLE = 'AI CODE REVIEWER';
 const UNLOCKED_KEY = 'acr-unlocked-achievements';
@@ -42,6 +50,7 @@ export default function App() {
   const [globalCount, setGlobalCount] = useState(getGlobalCount());
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [activeToast, setActiveToast] = useState<Achievement | null>(null);
+  const [activeTab, setActiveTab] = useState<ResultsTab>('review');
   const [unlockedIds, setUnlockedIds] = useState<string[]>(() => {
     try { return JSON.parse(localStorage.getItem(UNLOCKED_KEY) || '[]'); } catch { return []; }
   });
@@ -123,6 +132,7 @@ export default function App() {
     setPhase('reviewing');
     setComplaints([]);
     setIssues([]);
+    setActiveTab('review');
 
     /* Check for easter eggs first */
     const easterEgg = EASTER_EGGS.find((e) => e.detect(code));
@@ -200,6 +210,13 @@ export default function App() {
 
   /* Total issue count for severity meter (complaints + issues) */
   const totalIssueCount = complaints.length + issues.length;
+
+  /* Tab definitions for the results area */
+  const TABS: { id: ResultsTab; label: string; icon: string }[] = [
+    { id: 'review', label: 'PR REVIEW', icon: '🧐' },
+    { id: 'pipeline', label: 'CI/CD', icon: '⚙️' },
+    { id: 'dashboard', label: 'METRICS', icon: '📊' },
+  ];
 
   return (
     <div className="min-h-screen bg-terminal-bg text-terminal-orange font-mono overflow-hidden relative">
@@ -308,12 +325,84 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
             >
-              {/* Line-by-line roast of the pasted code */}
-              <LineByLineRoast code={code} isActive={phase === 'done'} />
+              {/* Tab navigation for results views */}
+              <div className="flex gap-px mb-4 border border-terminal-orange/15 bg-terminal-orange/10 overflow-hidden">
+                {TABS.map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`flex-1 text-[0.58rem] tracking-wider py-2.5 transition-all duration-200 ${
+                      activeTab === tab.id
+                        ? 'bg-terminal-dark text-terminal-orange/80 border-b-2 border-terminal-orange/50'
+                        : 'bg-terminal-dark/60 text-terminal-orange/30 hover:text-terminal-orange/50 hover:bg-terminal-dark/80'
+                    }`}
+                  >
+                    <span className="mr-1.5">{tab.icon}</span>
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
 
-              <IssuesList issues={issues} />
-              <ScoreBoard />
-              <Verdict text={finalVerdict} />
+              {/* Tab content — PR Review tab */}
+              {activeTab === 'review' && (
+                <motion.div
+                  key="review-tab"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {/* GitHub PR Review simulation */}
+                  <GitHubPRReview
+                    code={code}
+                    complaints={complaints}
+                    isActive={phase === 'done'}
+                  />
+
+                  {/* Line-by-line roast of the pasted code */}
+                  <LineByLineRoast code={code} isActive={phase === 'done'} />
+
+                  <IssuesList issues={issues} />
+                  <ScoreBoard />
+                  <Verdict text={finalVerdict} />
+                </motion.div>
+              )}
+
+              {/* Tab content — CI/CD Pipeline tab */}
+              {activeTab === 'pipeline' && (
+                <motion.div
+                  key="pipeline-tab"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <CICDPipeline isActive={activeTab === 'pipeline'} />
+                  <Verdict text={finalVerdict} />
+                </motion.div>
+              )}
+
+              {/* Tab content — Dashboard / Metrics tab */}
+              {activeTab === 'dashboard' && (
+                <motion.div
+                  key="dashboard-tab"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <DevDashboard
+                    isActive={activeTab === 'dashboard'}
+                    currentReviewCount={getSessionReviewCount()}
+                  />
+                  <ScoreBoard />
+                </motion.div>
+              )}
+
+              {/* Pro Tier & CLI Mode — always visible below tabs */}
+              <ProTierCLI
+                complaints={complaints}
+                issues={issues}
+                verdict={finalVerdict}
+                isActive={phase === 'done'}
+              />
 
               {/* Share report card */}
               <ShareReportCard
@@ -322,6 +411,9 @@ export default function App() {
                 personaName={persona.name}
                 verdict={finalVerdict}
               />
+
+              {/* Fake Changelog */}
+              <FakeChangelog />
 
               {/* Unlocked achievements display */}
               {unlockedIds.length > 0 && (
