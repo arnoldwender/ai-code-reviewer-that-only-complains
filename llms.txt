@@ -9,6 +9,10 @@
 ## Key Files
 - src/App.tsx — Main application component
 - src/components/ — UI components (reviewer personas, severity meter, etc.)
+- src/components/CICDPipeline.tsx — Fake GitHub Actions CI/CD pipeline
+- src/components/DevDashboard.tsx — Grafana-style developer performance dashboard
+- src/components/FakeChangelog.tsx — Satirical changelog
+- src/components/ProTierCLI.tsx — Pro Tier with CLI mode
 - src/data/ — Reviewer personas and complaint templates
 - src/utils/ — Utility functions
 
@@ -19,6 +23,11 @@
 - Achievement system
 - Shareable report cards (html2canvas)
 - Sound effects (Web Audio API)
+- CI/CD Pipeline mockup (GitHub Actions)
+- Developer Performance Dashboard (Grafana-style)
+- Fake Changelog
+- Pro Tier with CLI mode
+- Tab navigation
 
 ## URLs
 - Live: https://ai-code-reviewer-that-only-complains.netlify.app

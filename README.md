@@ -24,6 +24,11 @@ Paste your code and prepare for emotional damage. This AI code reviewer has 4 di
 - **Achievements System** — Unlock badges for surviving the worst reviews
 - **Share Report Card** — Generate a shareable report card of your code's failures
 - **Sound Effects** — Audio feedback that matches the reviewer's disappointment
+- **CI/CD Pipeline Mockup** — A fake GitHub Actions pipeline that always fails your code
+- **Developer Performance Dashboard** — Grafana-style metrics showing your declining code quality over time
+- **Fake Changelog** — Version history of increasingly hostile reviewer updates
+- **Pro Tier with CLI Mode** — Premium upgrade with a terminal-based roasting experience
+- **Tab Navigation** — Multi-panel interface to explore all the ways your code disappoints
 
 ## Tech Stack
 
