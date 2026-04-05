@@ -1,7 +1,7 @@
 /* Main app — orchestrates all review features, personas, easter eggs, sounds, and achievements */
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { Terminal, Volume2, VolumeX } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import CrtOverlay from './components/CrtOverlay';
 import ReviewFeedback from './components/ReviewFeedback';
 import IssuesList from './components/IssuesList';
@@ -317,9 +317,8 @@ export default function App() {
         {/* Complaint feed */}
         <ReviewFeedback complaints={complaints} />
 
-        {/* Results section — shown after review completes */}
-        <AnimatePresence>
-          {phase === 'done' && (
+        {/* Results section — shown after review completes (no AnimatePresence to prevent black screen) */}
+        {phase === 'done' && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -452,7 +451,6 @@ export default function App() {
               </button>
             </motion.div>
           )}
-        </AnimatePresence>
 
         {/* Footer */}
         <footer className="border-t border-terminal-orange/10 pt-6 mt-8 text-center text-[0.56rem] text-terminal-orange/20 tracking-widest leading-[2.4]">
