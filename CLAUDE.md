@@ -1,10 +1,14 @@
-# ai-code-reviewer-that-only-complains — Reference / OSS Clone
+# ai-code-reviewer-that-only-complains — contributor notes
 
 ## Project
-- **Type:** External reference repository (read-only inspiration, do not copy 1:1)
-- **Description:** # :rage: AI Code Reviewer That Only Complains
 
-## Context
+- Humour web app (React 18 + Vite + Tailwind 3), deployed on Netlify from `main` (`npm run build` → `dist/`).
+- Live: <https://ai-code-reviewer-that-only-complains.netlify.app>
 
-This is an OSS clone or reference repo. No WM work is done here directly.
-Workspace rules from `~/Development/CLAUDE.md` still apply when working in this context.
+## Rules
+
+- **No third-party requests.** Fonts are self-hosted via `@fontsource/*`; never re-add Google Fonts or other CDN assets.
+- **Legal pages** are static files: `public/impressum/index.html` and `public/datenschutz/index.html`, linked from the
+  app footer. If you add a feature that stores data in the browser or contacts a third party, update the
+  Datenschutzerklärung in the same change.
+- `localStorage` is written only after a user action (review, persona selection), never on page load.

@@ -54,7 +54,7 @@ export default function App() {
   const [unlockedIds, setUnlockedIds] = useState<string[]>(() => {
     try { return JSON.parse(localStorage.getItem(UNLOCKED_KEY) || '[]'); } catch { return []; }
   });
-  const [_personasUsed, setPersonasUsed] = useState<string[]>(() => {
+  const [, setPersonasUsed] = useState<string[]>(() => {
     try { return JSON.parse(localStorage.getItem(PERSONAS_USED_KEY) || '[]'); } catch { return []; }
   });
   const toastQueue = useRef<Achievement[]>([]);
@@ -457,6 +457,11 @@ export default function App() {
           <div>AI CODE REVIEWER IS NOT RESPONSIBLE FOR CAREER CHANGES, EXISTENTIAL CRISES, OR DELETED REPOS</div>
           <div>BUILT BY ARNOLD WENDER -- 18 YEARS OF CLEAN CODE. THIS IS NOT THAT.</div>
           <div className="text-terminal-red/15 mt-1">HTTP 418 -- YOUR CODE IS ALSO A TEAPOT</div>
+          {/* Legal pages are static files in public/ so they stay reachable without JavaScript */}
+          <nav aria-label="Legal" className="mt-3 flex justify-center gap-6 text-[0.7rem] text-terminal-orange/70">
+            <a href="/impressum/" className="underline underline-offset-4 hover:text-terminal-orange focus-visible:outline focus-visible:outline-1 focus-visible:outline-terminal-orange">IMPRESSUM</a>
+            <a href="/datenschutz/" className="underline underline-offset-4 hover:text-terminal-orange focus-visible:outline focus-visible:outline-1 focus-visible:outline-terminal-orange">DATENSCHUTZ</a>
+          </nav>
         </footer>
       </div>
     </div>
